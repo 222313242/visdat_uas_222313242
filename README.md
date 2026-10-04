@@ -97,4 +97,4 @@ visdat_uas_222313242/
 - Turf.js
 
 ##
-Muhammad Haris Syah Putra / 222313242 /Politeknik Statistika STIS
+Muhammad Haris Syah Putra / 222313242 / Politeknik Statistika STIS
