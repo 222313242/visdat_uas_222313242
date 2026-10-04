@@ -2,9 +2,9 @@
 
 Visualisasi interaktif mengenai dinamika pengangguran dan ketimpangan pembangunan sosio-ekonomi di 514 kabupaten/kota Indonesia.
 
-URL PROYEK: isu-pengangguran.vercel.app 
+URL PROYEK: [isu-pengangguran.vercel.app](https://isu-pengangguran.vercel.app/)
 
-URL REPOSITORI: github.com/222313242/visdat_uas_222313242
+URL REPOSITORI: [github.com/222313242/visdat_uas_222313242](https://github.com/222313242/visdat_uas_222313242)
 
 ## Tentang Proyek
 
