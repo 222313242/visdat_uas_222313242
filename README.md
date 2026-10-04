@@ -84,3 +84,21 @@ visdat_uas_222313242/
 │   └── script.js
 ├── analisis.py
 └── index.html
+```
+
+## Menjalankan Secara Lokal
+
+Project dapat dijalankan menggunakan server lokal
+Buka index.html menggunakan Live Server untuk menjalankan visualisasi.
+
+## Tools:
+- HTML
+- CSS
+- JavaScript
+- D3.js
+- Leaflet
+- Turf.js
+
+Muhammad Haris Syah Putra
+NIM 222313242
+Politeknik Statistika STIS
