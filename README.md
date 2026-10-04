@@ -4,9 +4,9 @@ Visualisasi interaktif mengenai dinamika pengangguran dan ketimpangan pembanguna
 
 ## Tentang Proyek
 
-Proyek ini dibuat untuk UAS Visualisasi Data dan Informasi 2026 di Politeknik Statistika STIS.
+Proyek ini dibuat untuk Proyek UAS Visualisasi Data dan Informasi
 
-Visualisasi dikembangkan dalam bentuk data storytelling untuk melihat pengangguran tidak hanya sebagai angka, tetapi sebagai bagian dari pola spasial dan struktur pembangunan sosio-ekonomi daerah.
+Visualisasi dikembangkan dalam bentuk data storytelling untuk melihat pengangguran melalui pola spasial dan struktur pembangunan sosio-ekonomi daerah.
 
 Proyek menggunakan tiga pendekatan utama:
 
@@ -68,6 +68,7 @@ Data utama berasal dari Badan Pusat Statistik (BPS). Data pendukung berupa batas
 16. LapakGIS, *Batas wilayah kabupaten/kota Indonesia 2024*, berkas shapefile, 2024. Accessed: Oct. 2, 2026. Available: https://www.lapakgis.com/
 
 ## Struktur Repository
+Project dapat dijalankan menggunakan server lokal melalui index.html
 
 ```text
 visdat_uas_222313242/
@@ -86,12 +87,8 @@ visdat_uas_222313242/
 └── index.html
 ```
 
-## Menjalankan Secara Lokal
-
-Project dapat dijalankan menggunakan server lokal
-Buka index.html menggunakan Live Server untuk menjalankan visualisasi.
-
 ## Tools:
+
 - HTML
 - CSS
 - JavaScript
