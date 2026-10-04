@@ -1,0 +1,42 @@
+RINGKASAN HASIL ANALISIS
+
+1. CAKUPAN DATA
+- Multivariat: 38 provinsi × 9 variabel.
+- Spasial: 514 kabupaten/kota.
+- Hierarki: 32 kelompok daun; total root 153,494,596 orang.
+
+2. GEOSPASIAL
+- Rata-rata TPT kabupaten/kota: 4.18%.
+- TPT tertinggi: Kota Ambon (Maluku), 11.37%.
+- TPT terendah: Puncak (Papua Tengah), 0.14%.
+- Kab/kota dengan TPT ≥ 5%: 148 dari 514.
+- Total penganggur dari tabel spasial: 7,461,169 orang.
+- Klasifikasi choropleth: Jenks natural breaks, 5 kelas; break 0.14, 2.54, 3.95, 5.43, 7.18, 11.37.
+
+3. AUTOKORELASI SPASIAL
+- Moran's I: 0.4651.
+- Expected I: -0.0019.
+- z-score: 12.788.
+- p-value permutasi: 0.0020; 499 permutasi.
+- LISA: HH=34, LL=24, HL=1, LH=4, NS=451.
+
+4. PCA / MULTIVARIAT
+- PC1 menjelaskan 46.14% variasi.
+- PC2 menjelaskan 24.70% variasi.
+- Dua komponen pertama menjelaskan 70.84% variasi.
+- Loading absolut terbesar PC1: IP-TIK, Perkotaan, APM SMA, Kemiskinan.
+- Loading absolut terbesar PC2: Upah, PDRB non-agri, APM SMA, PMTB/kapita.
+- TPT tidak digunakan sebagai input PCA; TPT digunakan sebagai variabel eksternal untuk interpretasi/pewarnaan.
+
+5. HIERARKI
+- Status terbesar secara absolut: Pekerja Penuh (98,646,655; 64.27% dari root).
+- Kelompok gender terbesar: Laki-laki (92,561,183).
+- Pendidikan dengan proporsi Pengangguran Terbuka tertinggi: SMA / SMK (7.58%).
+- Jumlah Pengangguran Terbuka pada pendidikan tersebut: 4,217,319 dari 55,625,275.
+
+6. KUALITAS JOIN SPASIAL
+- Data BPS matched: 514 / 514.
+- Data BPS unmatched: [].
+- Feature GeoJSON unmatched: 1.
+- Kode GeoJSON ambiguous: 92.01.
+

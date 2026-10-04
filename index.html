@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Isu Pengangguran yang Masih Berhamburan</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <link rel="stylesheet" href="css/style.css">
+<script src="https://unpkg.com/d3@7.9.0/dist/d3.min.js"></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+</head>
+<body>
+<div class="story-stage">
+<div class="tooltip" id="tooltip"></div>
+<header class="hero"><div class="story">
+  <div class="kicker">Geospasial · Multivariat · Hierarki</div>
+  <h1>Isu Pengangguran yang Masih Berhamburan</h1>
+  <p>Melihat pengangguran Indonesia bukan hanya sebagai angka, melainkan sebagai pola spasial dan bagian dari struktur pembangunan sosioekonomi daerah.</p>
+  <p class="byline">Oleh Muhammad Haris Syah Putra</p>
+</div></header>
+
+<main>
+<section class="question"><div class="story"><h2>Di mana pengangguran paling terkonsentrasi?</h2></div></section>
+<section class="content-section"><div class="story">
+  <h2>Pengangguran tidak tersebar merata</h2>
+  <p class="section-lead">TPT dibaca sebagai rasio dan ditampilkan sebagai <strong>choropleth</strong>, sedangkan jumlah penganggur absolut ditampilkan sebagai <strong>proportional symbol</strong>.</p>
+  <div class="stat-row" id="spatial-stats"></div>
+  <div class="chart-card">
+    <div class="chart-title">Tingkat Pengangguran Terbuka di 514 Kabupaten/Kota</div>
+    <div class="chart-note">Choropleth · Jenks natural breaks · 5 kelas</div>
+    <div class="map-wrap"><div id="map" class="map-canvas"></div><div class="map-controls"><button id="btn-choropleth" class="active">TPT</button><button id="btn-symbol">Jumlah Penganggur</button></div><button id="map-reset" class="map-reset">Reset</button></div>
+    <div class="legend" id="map-legend"></div><div class="chips" id="top-tpt"></div>
+    <div class="source">Sumber: Badan Pusat Statistik (BPS) dan batas administrasi kabupaten/kota.</div>
+  </div>
+  <div class="interpretation"><strong>Kota Ambon</strong> mencatat TPT tertinggi, <strong>11,37%</strong>, sejalan dengan ekonomi kota yang bertumpu pada jasa, perdagangan, dan pariwisata, namun dengan ruang dan basis sumber daya alam yang terbatas. Sementara itu, <strong>Kabupaten Bogor</strong> memiliki jumlah penganggur absolut terbesar, sekitar <strong>218,34 ribu orang</strong>, karena basis penduduk dan angkatan kerjanya sangat besar.</div>
+</div></section>
+
+<section class="question"><div class="story"><h2>Apakah terdapat pola geografis di baliknya?</h2></div></section>
+<section class="content-section"><div class="story">
+  <h2>Ada pola spasial yang nyata</h2>
+  <p class="section-lead">Moran's I menguji pola global. LISA kemudian menunjukkan lokasi wilayah yang cenderung membentuk kelompok tinggi atau rendah serta spatial outlier.</p>
+  <div class="chart-card">
+    <div class="chart-title">Local Indicators of Spatial Association (LISA)</div>
+    <div class="chart-note">HH = tinggi dikelilingi tinggi · LL = rendah dikelilingi rendah · HL/LH = pencilan spasial · NS = tidak signifikan</div>
+    <div class="map-wrap lisa-wrap"><div id="lisa-map" class="map-canvas"></div><button id="lisa-reset" class="map-reset">Reset</button></div>
+    <div class="legend" id="lisa-legend"></div>
+  </div>
+  <div class="stat-row" id="moran-stats"></div>
+  <div class="interpretation">Moran's I sebesar <strong>0,465</strong> dengan z-score <strong>12,79</strong> menunjukkan autokorelasi spasial positif. Di <strong>Banten</strong>, misalnya, <strong>Lebak, Sukabumi, dan Serang</strong> berada dalam pola <strong>High-High (HH)</strong>, TPT relatif tinggi dan dikelilingi wilayah dengan TPT tinggi. Sebaliknya, <strong>Poso, Sigi, dan Luwu Timur</strong> menunjukkan pola <strong>Low-Low (LL)</strong>, TPT relatif rendah yang berdekatan dengan wilayah bertipe serupa.</div>
+</div></section>
+
+<section class="question"><div class="story"><h2>Pengangguran bukan hanya persoalan lokasi. <span class="accent">Apa yang ada di balik angka itu?</span></h2></div></section>
+<section class="content-section"><div class="story">
+  <h2>Pengangguran berada dalam konteks pembangunan yang multidimensi</h2>
+  <p class="section-lead">Sembilan indikator struktural distandardisasi dengan Z-score lalu direduksi menggunakan PCA.</p>
+  <div class="stat-row" id="pca-stats"></div>
+  <div class="variable-bubbles" id="variable-bubbles"></div>
+  <div class="chart-card">
+    <div class="chart-title">PCA: Posisi Provinsi dalam Dua Dimensi Utama</div>
+    <div class="chart-note">Hover atau klik satu provinsi untuk menyorot profil yang sama pada PCA, parallel coordinates, dan scatterplot matrix.</div>
+    <div id="pca-chart"></div><div class="pca-legend"><span>TPT lebih rendah</span><span class="pca-gradient"></span><span>TPT lebih tinggi</span></div>
+  </div>
+  <div class="interpretation">Dua komponen pertama menjelaskan <strong>70,84%</strong> variasi sembilan indikator. <strong>PC1</strong> paling dominan dijelaskan oleh <strong>IP-TIK</strong> dan <strong>Persentase Penduduk Perkotaan</strong>, sedangkan <strong>PC2</strong> oleh <strong>Rata-rata Upah</strong> dan <strong>PDRB non-agri</strong>. <strong>DKI Jakarta</strong> tampak paling terpisah dari kumpulan utama, mencerminkan karakteristik pembangunan yang berbeda.</div>
+  <div class="chart-card">
+    <div class="chart-title">Parallel Coordinates: Profil Pembangunan Provinsi</div>
+    <div class="chart-note">Setiap garis merepresentasikan provinsi. Hover menunjukkan profil satu provinsi secara penuh.</div>
+    <div class="scroll-x"><div id="parallel"></div></div>
+  </div>
+  <div class="interpretation"><strong>PDRB non-agri</strong> melebar karena struktur ekonomi provinsi berbeda, dari daerah yang lebih agraris hingga yang lebih ditopang industri dan jasa. <strong>PMTB per Kapita</strong> dan <strong>IP-TIK</strong> lebih memadat karena variasi investasi per penduduk dan akses teknologi antarprovinsi relatif lebih terbatas.</div>
+  <div class="two-col">
+    <div class="chart-card">
+      <div class="chart-title">Korelasi Antarindikator</div>
+      <div class="heat-legend"><span><i class="swatch neg"></i> Negatif kuat</span><span><i class="swatch mid"></i> Mendekati nol</span><span><i class="swatch pos"></i> Positif kuat</span></div>
+      <div class="heat-wrap" id="heatmap"></div>
+    </div>
+    <div class="chart-card matrix-card">
+      <div class="chart-title">Scatterplot Matrix</div>
+      <div class="chart-note">Klik atau hover satu titik untuk melihat provinsi yang sama pada seluruh pasangan indikator.</div>
+      <div class="matrix-wrap" id="matrix"></div>
+    </div>
+  </div>
+  <div class="interpretation"><strong>APM SMA dan IP-TIK</strong> memiliki hubungan terkuat (<strong>r = 0,86</strong>), karena wilayah dengan akses pendidikan menengah lebih baik cenderung memiliki akses teknologi yang lebih tinggi. Sebaliknya, <strong>IP-TIK dan Persentase Penduduk Miskin</strong> berkorelasi kuat berlawanan (<strong>r = -0,81</strong>).</div>
+</div></section>
+
+<section class="question"><div class="story"><h2>Lantas, bagaimana struktur angkatan kerja?</h2></div></section>
+<section class="content-section"><div class="story">
+  <h2>Struktur ketenagakerjaan tidak seragam</h2>
+  <p class="section-lead">Hierarki menggunakan urutan <strong>Status Pekerjaan, Tingkat Pendidikan, dan Jenis Kelamin</strong>.</p>
+  <div class="stat-row" id="hier-stats"></div>
+  <div class="chart-card">
+    <div class="breadcrumb" id="sun-breadcrumb"></div>
+    <div class="chart-title">Sunburst: Struktur Angkatan Kerja</div>
+    <div class="chart-note">Klik segmen untuk drill-down melihat data lebih spesifik. Klik lingkaran tengah untuk kembali ke Angkatan Kerja.</div>
+    <div id="sunburst"></div>
+  </div>
+  <div class="chart-card">
+    <div class="chart-title">Treemap: Besaran Kelompok</div>
+    <div class="chart-note">Ukuran = jumlah orang. Warna dasar = status pekerjaan, dengan variasi warna untuk pendidikan dan gender.</div>
+    <div id="treemap"></div>
+  </div>
+  <div class="interpretation">Struktur angkatan kerja didominasi kombinasi <strong>Pekerja Penuh · SMA/SMK · Laki-laki</strong>. Secara umum laki-laki juga lebih dominan pada sebagian besar kombinasi status dan pendidikan, meski terdapat beberapa pengecualian.</div>
+  <div class="chart-card">
+    <div class="chart-title">Proporsi Pengangguran Terbuka menurut Pendidikan</div>
+    <div class="chart-note">Rasio = Pengangguran Terbuka pada pendidikan ÷ total angkatan kerja pada pendidikan. Setiap batang adalah rasio, bukan bagian dari total, sehingga tidak berjumlah 100%.</div>
+    <div id="education-rate"></div>
+  </div>
+  <div class="interpretation"><strong>SMA/SMK</strong> memiliki proporsi Pengangguran Terbuka terbesar, <strong>7,58%</strong>, sebagai jenjang yang sangat besar dalam transisi pendidikan ke pasar kerja dan sekaligus menjadi salah satu kelompok dengan basis tenaga kerja terbesar.</div>
+</div></section>
+</main>
+</div>
+<footer class="footer"><div class="story">
+  <div class="kicker">Kesimpulan</div><h2>Pengangguran adalah bagian dari pola pembangunan yang lebih luas.</h2>
+  <p>Dari <strong>peta</strong>, terlihat bahwa pengangguran tidak tersebar secara acak. Ada konsentrasi wilayah dengan TPT tinggi dan rendah, dan Moran's I memperkuat adanya pola tersebut.</p>
+  <p>Dari <strong>PCA dan hubungan antarindikator</strong>, pembangunan memiliki beberapa dimensi yang bergerak bersama, dengan kontribusi terbesar dari <strong>IP-TIK, Persentase Penduduk Perkotaan, APM SMA, dan Persentase Penduduk Miskin</strong>.</p>
+  <p>Dari <strong>hierarki angkatan kerja</strong>, Pekerja Penuh tetap menjadi kelompok dominan, tetapi pada Pengangguran Terbuka, pendidikan <strong>SMA/SMK</strong> memiliki proporsi tertinggi.</p>
+  <p>Sumber data: <strong>Badan Pusat Statistik (BPS)</strong> · Batas administrasi: GeoJSON kabupaten/kota · Analisis: Python · Visualisasi interaktif: D3.js dan Leaflet.</p>
+  <p class="footer-author"><strong>Muhammad Haris Syah Putra</strong></p><p class="footer-id">222313242</p>
+</div></footer>
+
+
+  <script src="js/script.js"></script>
+</body>
+</html>
