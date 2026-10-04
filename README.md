@@ -96,6 +96,5 @@ visdat_uas_222313242/
 - Leaflet
 - Turf.js
 
-Muhammad Haris Syah Putra
-NIM 222313242
-Politeknik Statistika STIS
+##
+Muhammad Haris Syah Putra / 222313242 /Politeknik Statistika STIS
