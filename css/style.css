@@ -30,7 +30,7 @@ body{
 h1{max-width:900px;margin:0;font-size:clamp(2.65rem,6vw,5.9rem);line-height:1.10;letter-spacing:-.055em}
 .hero p{max-width:750px;font-size:clamp(1rem,1.65vw,1.25rem);color:var(--muted)}
 .byline{font-weight:750;color:var(--ink)!important;margin-top:26px}
-.question{min-height:68svh;display:flex;align-items:center;padding:70px 0;scroll-snap-align:start}
+.question{min-height:48svh;display:flex;align-items:center;padding:50px 0;scroll-snap-align:start}
 .question h2{max-width:940px;font-size:clamp(2rem,4.6vw,4.45rem);line-height:1.02;letter-spacing:-.045em;margin:0}
 .question .accent{color:var(--orange)}
 .content-section{padding:72px 0 90px;scroll-snap-align:start}
@@ -71,12 +71,12 @@ button{transition:transform .18s ease,background .18s ease,color .18s ease,borde
 .footer{min-height:78vh;padding:120px 0 80px;display:flex;align-items:center;background:linear-gradient(90deg,#4b3a33 0%,#2c231f 55%,#211b18 100%);color:#fff4ea}.footer .story{min-height:62vh;display:flex;flex-direction:column;justify-content:center}.footer-id{font-size:1.2rem!important;color:#fff4ea!important;margin-top:2px!important}.footer p{color:#d9c9bd;max-width:820px}.footer-author{font-size:1.2rem!important;color:#fff4ea!important;margin-top:clamp(54px,9vh,110px)}.footer-id{font-size:1.2rem!important;color:#fff4ea!important;margin-top:2px!important}
 @media(max-width:860px){
   .stat-row{grid-template-columns:1fr 1fr}.two-col{grid-template-columns:1fr}
-  .hero{min-height:76svh;padding:54px 0 70px}.question{min-height:58svh}.content-section{padding:58px 0 72px}
+  .hero{min-height:76svh;padding:54px 0 70px}.question{min-height:44svh}.content-section{padding:58px 0 72px}
   .map-canvas,#map,#lisa-map{height:430px}.map-reset{top:54px}
   #sunburst{min-height:560px}#treemap{min-height:460px}
 }
 @media(max-width:540px){
-  .story{width:min(100% - 22px,1160px)}.stat-row{grid-template-columns:1fr}.hero{min-height:72svh}.question{min-height:52svh}
+  .story{width:min(100% - 22px,1160px)}.stat-row{grid-template-columns:1fr}.hero{min-height:72svh}.question{min-height:42svh}
   .question h2{font-size:clamp(1.9rem,9.7vw,3rem)}.content-section h2{font-size:clamp(1.65rem,8vw,2.45rem)}
   .chart-card{padding:14px}.map-canvas,#map,#lisa-map{height:390px}.map-controls{right:9px;top:9px}.map-reset{right:9px;top:54px}#lisa-map + .map-reset{top:9px}
 }
