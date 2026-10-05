@@ -21,7 +21,7 @@
 </div></header>
 
 <main>
-<section class="question"><div class="story"><h2>Di mana pengangguran paling terkonsentrasi?</h2></div></section>
+<section class="question"><div class="story"><h2>Di mana pengangguran paling <span class="accent">terkonsentrasi?</span></h2></div></section>
 <section class="content-section"><div class="story">
   <h2>Pengangguran tidak tersebar merata</h2>
   <p class="section-lead">TPT dibaca sebagai rasio dan ditampilkan sebagai <strong>choropleth</strong>, sedangkan jumlah penganggur absolut ditampilkan sebagai <strong>proportional symbol</strong>.</p>
@@ -36,7 +36,7 @@
   <div class="interpretation"><strong>Kota Ambon</strong> mencatat TPT tertinggi, <strong>11,37%</strong>, sejalan dengan ekonomi kota yang bertumpu pada jasa, perdagangan, dan pariwisata, namun dengan ruang dan basis sumber daya alam yang terbatas. Sementara itu, <strong>Kabupaten Bogor</strong> memiliki jumlah penganggur absolut terbesar, sekitar <strong>218,34 ribu orang</strong>, karena basis penduduk dan angkatan kerjanya sangat besar.</div>
 </div></section>
 
-<section class="question"><div class="story"><h2>Apakah terdapat pola geografis di baliknya?</h2></div></section>
+<section class="question"><div class="story"><h2>Apakah terdapat pola <span class="accent">geografis</span> di baliknya?</h2></div></section>
 <section class="content-section"><div class="story">
   <h2>Ada pola spasial yang nyata</h2>
   <p class="section-lead">Moran's I menguji pola global. LISA kemudian menunjukkan lokasi wilayah yang cenderung membentuk kelompok tinggi atau rendah serta spatial outlier.</p>
@@ -58,7 +58,7 @@
   <div class="variable-bubbles" id="variable-bubbles"></div>
   <div class="chart-card">
     <div class="chart-title">PCA: Posisi Provinsi dalam Dua Dimensi Utama</div>
-    <div class="chart-note">Hover atau klik satu provinsi untuk menyorot profil yang sama pada PCA, parallel coordinates, dan scatterplot matrix.</div>
+    <div class="chart-note">Hover atau drag select membentuk persegi untuk menyorot profil yang sama pada PCA, parallel coordinates, dan scatterplot matrix.</div>
     <div id="pca-chart"></div><div class="pca-legend"><span>TPT lebih rendah</span><span class="pca-gradient"></span><span>TPT lebih tinggi</span></div>
   </div>
   <div class="interpretation">Dua komponen pertama menjelaskan <strong>70,84%</strong> variasi sembilan indikator. <strong>PC1</strong> paling dominan dijelaskan oleh <strong>IP-TIK</strong> dan <strong>Persentase Penduduk Perkotaan</strong>, sedangkan <strong>PC2</strong> oleh <strong>Rata-rata Upah</strong> dan <strong>PDRB non-agri</strong>. <strong>DKI Jakarta</strong> tampak paling terpisah dari kumpulan utama, mencerminkan karakteristik pembangunan yang berbeda.</div>
@@ -83,7 +83,7 @@
   <div class="interpretation"><strong>APM SMA dan IP-TIK</strong> memiliki hubungan terkuat (<strong>r = 0,86</strong>), karena wilayah dengan akses pendidikan menengah lebih baik cenderung memiliki akses teknologi yang lebih tinggi. Sebaliknya, <strong>IP-TIK dan Persentase Penduduk Miskin</strong> berkorelasi kuat berlawanan (<strong>r = -0,81</strong>).</div>
 </div></section>
 
-<section class="question"><div class="story"><h2>Lantas, bagaimana struktur angkatan kerja?</h2></div></section>
+<section class="question"><div class="story"><h2>Lantas, bagaimana <span class="accent">struktur</span> angkatan kerja itu sendiri?</h2></div></section>
 <section class="content-section"><div class="story">
   <h2>Struktur ketenagakerjaan tidak seragam</h2>
   <p class="section-lead">Hierarki menggunakan urutan <strong>Status Pekerjaan, Tingkat Pendidikan, dan Jenis Kelamin</strong>.</p>
@@ -94,12 +94,35 @@
     <div class="chart-note">Klik segmen untuk drill-down melihat data lebih spesifik. Klik lingkaran tengah untuk kembali ke Angkatan Kerja.</div>
     <div id="sunburst"></div>
   </div>
+    <div class="interpretation">
+    Sunburst menunjukkan bahwa struktur angkatan kerja Indonesia didominasi oleh
+    <strong>Pekerja Penuh</strong>, yang mencakup sekitar <strong>64,27%</strong>
+    dari total angkatan kerja. Kelompok berikutnya adalah <strong>Pekerja Paruh Waktu</strong>
+    sebesar sekitar 23,65%, sedangkan <strong>Setengah Penganggur</strong> dan
+    <strong>Pengangguran Terbuka</strong> memiliki proporsi yang lebih kecil.
+    Ketika struktur tersebut di-drill-down berdasarkan pendidikan dan jenis kelamin,
+    terlihat bahwa komposisi terbesar berasal dari kombinasi pekerja penuh dengan
+    pendidikan SMA/SMK, terutama laki-laki. Dengan demikian, sunburst memperlihatkan
+    bahwa sebagian besar angkatan kerja berada pada status bekerja penuh, sementara
+    pengangguran terbuka merupakan bagian yang relatif lebih kecil dari keseluruhan
+    struktur angkatan kerja.
+  </div>
   <div class="chart-card">
     <div class="chart-title">Treemap: Besaran Kelompok</div>
-    <div class="chart-note">Ukuran = jumlah orang. Warna dasar = status pekerjaan, dengan variasi warna untuk pendidikan dan gender.</div>
+    <div class="chart-note">Ukuran persegi merepresentasikan jumlah orang. Warna dasar merepresentasikan status pekerjaan.</div>
     <div id="treemap"></div>
   </div>
-  <div class="interpretation">Struktur angkatan kerja didominasi kombinasi <strong>Pekerja Penuh · SMA/SMK · Laki-laki</strong>. Secara umum laki-laki juga lebih dominan pada sebagian besar kombinasi status dan pendidikan, meski terdapat beberapa pengecualian.</div>
+    <div class="interpretation">
+    Treemap memperjelas perbedaan besaran antar-kelompok melalui luas setiap persegi.
+    Kelompok dengan area terbesar adalah kombinasi <strong>Pekerja Penuh · SMA/SMK · Laki-laki</strong>,
+    yang menunjukkan bahwa kelompok ini merupakan salah satu komponen terbesar dalam angkatan kerja.
+    Besarnya kelompok pekerja penuh juga terlihat dari dominasi area berwarna oranye dibandingkan
+    status pekerjaan lainnya. Sebaliknya, kelompok <strong>Pengangguran Terbuka</strong> memiliki
+    area yang jauh lebih kecil, sehingga secara jumlah merupakan bagian yang relatif terbatas
+    dibandingkan pekerja yang sudah bekerja. Visualisasi ini juga memperlihatkan bahwa perbedaan
+    komposisi tidak hanya terjadi antar-status pekerjaan, tetapi juga pada kombinasi tingkat
+    pendidikan dan jenis kelamin di dalam masing-masing status.
+  </div>
   <div class="chart-card">
     <div class="chart-title">Proporsi Pengangguran Terbuka menurut Pendidikan</div>
     <div class="chart-note">Rasio = Pengangguran Terbuka pada pendidikan ÷ total angkatan kerja pada pendidikan. Setiap batang adalah rasio, bukan bagian dari total, sehingga tidak berjumlah 100%.</div>
