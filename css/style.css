@@ -80,3 +80,11 @@ button{transition:transform .18s ease,background .18s ease,color .18s ease,borde
   .question h2{font-size:clamp(1.9rem,9.7vw,3rem)}.content-section h2{font-size:clamp(1.65rem,8vw,2.45rem)}
   .chart-card{padding:14px}.map-canvas,#map,#lisa-map{height:390px}.map-controls{right:9px;top:9px}.map-reset{right:9px;top:54px}#lisa-map + .map-reset{top:9px}
 }
+
+.summary-conclusion-gap {
+  height: 100px;
+}
+
+.summary-conclusion-gap {
+  height: clamp(70px, 10vw, 130px);
+}
